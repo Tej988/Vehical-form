@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+form{
+    max-width: 300;
+    margin: auto;
+    text-align: center;
+    margin-top: 2rem;
+    
+}
+
+/* label, input{
+    margin: 1rem;
+   
+
+} */
+
+table ,tr ,td{
+
+    border: 1px grey solid;
+}
+table{
+    width: 40%;
+   margin-left: 1rem;
+    
+}
+
+th{
+    background-color: #04AA6D;
+    color: #fff;
+    padding: 0.4rem;
+}
+
+td, input,select{
+    padding: .3rem;
+    
+}
+input{
+    outline: none;
+}
+
+button{
+    padding: .2rem .4rem;
+    
+   
+}
+
+

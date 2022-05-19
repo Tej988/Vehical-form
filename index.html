@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form action="#">
+ 
+        <table>
+            <tr>
+                <th>Vechical Properties</th>
+                <th>Vehical Values</th>
+            </tr>
+            <tr>
+                <td> <label for="vn">Vahical Reg. No.</label></td>
+                <td> <input type="text" placeholder="ex. MH20EE0938" id="vn" style="text-transform: uppercase;"></td>
+            </tr>
+            <tr>
+                <td><label for="owner">Present Owner Name</label></td>
+                <td><input type="text" id="owner" placeholder="Mr.Shivkumar " style="text-transform: uppercase;"></td>
+            </tr>
+            <tr>
+                <td> <label for="contact">Contact No</label></td>
+                <td><input type="text" id="contact" placeholder="1234567890" style="text-transform: uppercase;"></td>
+            </tr>
+            <tr>
+                <td> <label for="purpose">Purpose of Valuation</label></td>
+                <td> <input type="text" id="purpose" placeholder="personal" style="text-transform: uppercase;">
+                </td>
+            </tr>
+            <tr>
+                <td> <label for="model">Make/ Model</label></td>
+                <td> <input type="text" id="model" placeholder="Tiago - TIAGO XR 1.2P." style="text-transform: uppercase;">
+                </td>
+            </tr>
+            <tr>
+                <td> <label for="fuel">Fuel Used</label>
+                </td>
+                <td><select name="cars" id="fuel">
+                        <option value="ptrol">Petrol</option>
+                        <option value="desiel">Desiel</option>
+                        <option value="cng">CNG</option>
+
+                    </select></td>
+            </tr>
+            <tr>
+                <td> <label for="capacity">Capacity of Tank (in Ltr.)</label>
+                </td>
+                <td><input type="number" placeholder="35"></td>
+            </tr>
+
+
+           
+            <tr>
+                <td> <label for="rc">RC / Tax Book</label></td>
+                <td><select name="rc" id="rc">
+                        <option value="ptrol">Verified</option>
+                        <option value="unverified">UnVerified</option>
+                    </select></td>
+            </tr>
+
+            <tr>
+                <td> <label for="insurance">Insurance</label> </td>
+                <td>
+                    <select name="insurance" id="insurance">
+                        <option value="available">Available</option>
+                        <option value="unavailable">UnAvailable</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr><th><Button type="reset">Reset</Button></th>
+                <th><Button type="submit">Sumbit</Button></th>
+            </tr>
+            
+        </table>
+
+
+
+
+      
+
+        
+    </form>
+
+</body>
+
+</html>
