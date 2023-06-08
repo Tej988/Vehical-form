@@ -6,19 +6,50 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+stages:
+  
+# - task: ArchiveFiles@2
+#   inputs:
+#     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+#     includeRootFolder: false
+#     archiveType: 'zip'
+#     archiveFile: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+#     replaceExistingArchive: true
 
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'app-servicecs-connection'
-    appType: 'webAppLinux'
-    WebAppName: 'pipelineweb'
-    packageForLinux: '$(System.DefaultWorkingDirectory)//*.zip'
+# - task: AzureRmWebAppDeployment@4
+#   inputs:
+#     ConnectionType: 'AzureRM'
+#     azureSubscription: 'app-servicecs-connection'
+#     appType: 'webAppLinux'
+#     WebAppName: 'pipelineweb'
+#     packageForLinux: '$(System.DefaultWorkingDirectory)//*.zip'
+
+
+- stage: DeployDevStage
+  displayName: 'Deploy App to Dev Slot'
+  jobs:
+    - job:  DeployApp
+      displayName: 'Deploy App'
+      steps:
+      - task: DownloadPipelineArtifact@2
+        inputs:
+          buildType: 'current'
+          artifactName: 'drop'
+          targetPath: '$(System.DefaultWorkingDirectory)'
+      # - task: AzureRmWebAppDeployment@4
+      #   inputs:
+      #     ConnectionType: 'AzureRM'
+      #     azureSubscription: 'Fabrikam Azure Subscription - PartsUnlimited'
+      #     appType: 'webApp'
+      #     WebAppName: 'partsunlimited'
+      #     deployToSlotOrASE: true
+      #     ResourceGroupName: 'rgPartsUnlimited'
+      #     SlotName: 'Dev'
+      #     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      - task: AzureRmWebAppDeployment@4
+        inputs:
+          ConnectionType: 'AzureRM'
+          azureSubscription: 'app-servicecs-connection'
+          appType: 'webAppLinux'
+          WebAppName: 'pipelineweb'
+          packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
