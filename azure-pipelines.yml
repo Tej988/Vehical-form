@@ -14,3 +14,11 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(69eacb20-5fab-41c1-a0c3-d64f243913fb)'
+    appType: 'webAppLinux'
+    WebAppName: 'pipelineweb'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
